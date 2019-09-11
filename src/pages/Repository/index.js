@@ -16,22 +16,18 @@ export default class Repository extends Component {
     }).isRequired,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      repository: {},
-      issues: [],
-      loading: true,
-      filters: [
-        { state: 'all', label: 'Todas', active: true },
-        { state: 'open', label: 'Abertas', active: false },
-        { state: 'closed', label: 'Fechadas', active: false },
-      ],
-      filterIndex: 0,
-      page: 1,
-    };
-  }
+  state = {
+    repository: {},
+    issues: [],
+    loading: true,
+    filters: [
+      { state: 'all', label: 'Todas', active: true },
+      { state: 'open', label: 'Abertas', active: false },
+      { state: 'closed', label: 'Fechadas', active: false },
+    ],
+    filterIndex: 0,
+    page: 1,
+  };
 
   async componentDidMount() {
     const { match } = this.props;
